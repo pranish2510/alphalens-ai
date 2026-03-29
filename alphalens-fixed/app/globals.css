@@ -1,0 +1,141 @@
+/* app/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #181411;
+  --bg-raised:    #1E1A16;
+  --bg-surface:   #231F1A;
+  --bg-elevated:  #28231D;
+  --border:       #2A2521;
+  --border-soft:  #322C26;
+  --beige:        #E4D4BC;
+  --beige-mid:    #BFA98E;
+  --beige-dim:    #8C7A65;
+  --beige-ghost:  #4A4035;
+  --off-white:    #F2EDE6;
+  --muted:        #5C5247;
+  --green:        #7AA882;
+  --green-dim:    #2D4A32;
+  --red:          #B06060;
+  --red-dim:      #3D1F1F;
+  --amber:        #C4A35A;
+  --amber-dim:    #3A2D10;
+  --blue:         #6E90B0;
+  --blue-dim:     #1A2A38;
+  --serif:        'Playfair Display', Georgia, serif;
+  --sans:         'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono:         'JetBrains Mono', 'Courier New', monospace;
+  --r-sm:         3px;
+  --r-md:         5px;
+  --r-lg:         8px;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--off-white);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+* { scrollbar-width: thin; scrollbar-color: var(--border-soft) transparent; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: var(--border-soft); border-radius: 2px; }
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes td { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+@keyframes slideIn { from{opacity:0;transform:translateX(-8px)} to{opacity:1;transform:translateX(0)} }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
+.animate-slide-in { animation: slideIn 0.25s ease forwards; }
+
+/* Search input hover/focus */
+input:hover { border-color: var(--beige-dim) !important; }
+input:focus { border-color: var(--beige-dim) !important; }
+textarea:focus { border-color: var(--beige-dim) !important; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-surface) 50%, var(--bg-elevated) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--r-sm);
+}
+
+/* Chat structured response */
+.ai-short {
+  font-size: 12.5px;
+  color: var(--beige-mid);
+  font-weight: 500;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.ai-section { margin-bottom: 10px; }
+.ai-section-head {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ai-bullets { list-style: none; }
+.ai-bullets li {
+  font-size: 12px;
+  color: var(--beige-dim);
+  padding: 2px 0 2px 12px;
+  position: relative;
+  line-height: 1.5;
+}
+.ai-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--beige-ghost);
+  font-size: 10px;
+}
+.ai-action {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--bg-elevated);
+  border-left: 2px solid var(--beige-mid);
+  font-size: 12px;
+  color: var(--beige-mid);
+  line-height: 1.5;
+}
+.ai-confidence {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.conf-label { font-family: var(--mono); font-size: 8.5px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.conf-bar { flex: 1; height: 3px; background: var(--bg-elevated); border-radius: 2px; overflow: hidden; }
+.conf-fill { height: 100%; border-radius: 2px; background: var(--beige-mid); }
+.conf-pct { font-family: var(--mono); font-size: 9px; color: var(--beige-dim); }
