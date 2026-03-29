@@ -1,4 +1,18 @@
 # AlphaLens AI — Institutional Research Terminal
+![WhatsApp Image 2026-03-29 at 8 05 19 AM](https://github.com/user-attachments/assets/61122143-8e3d-4a90-b227-789b4bcf6876)
+
+![WhatsApp Image 2026-03-29 at 8 05 20 AM](https://github.com/user-attachments/assets/10d59ca8-66ab-409e-97d6-b7c609ac2e54)
+
+![WhatsApp Image 2026-03-29 at 8 05 21 AM](https://github.com/user-attachments/assets/5cf9a1ff-b272-4616-8e0e-58cd7e02553e)
+
+![WhatsApp Image 2026-03-29 at 8 05 22 AM](https://github.com/user-attachments/assets/e71e02a5-fd52-439b-869a-daa297aba4a9)
+
+![WhatsApp Image 2026-03-29 at 8 06 05 AM](https://github.com/user-attachments/assets/da9c9be0-f483-4490-9424-f3a40fe45f94)
+
+
+
+
+
 
 A full-stack AI-powered fintech application for real-time stock research, portfolio analysis, and market insights.
 
